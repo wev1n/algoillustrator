@@ -9,76 +9,16 @@ import {
   TabsList,
   TabsTrigger,
 } from "./_components/ui/tabs";
-import { ArrowRight, Code, Eye, Zap, Github } from "lucide-react";
+import { ArrowRight, Code, Eye, Zap } from "lucide-react";
 import { Button } from "./_components/ui/button";
-import { ThemeDropdown } from "./_components/theme-dropdown";
+import Footer from "./_components/footer";
+import Navbar from "./_components/navbar";
 
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="flex h-14 items-center justify-between px-4 lg:px-6">
-        <Link className="flex items-center justify-center" href="#">
-          <Code className="mr-2 h-6 w-6" />
-          <span className="font-bold">AlgoIllustrator</span>
-        </Link>
-        <nav className="hidden gap-4 sm:gap-6 md:flex">
-          <Link
-            className="text-sm font-medium underline-offset-4 hover:underline"
-            href="#"
-          >
-            Features
-          </Link>
-          <Link
-            className="text-sm font-medium underline-offset-4 hover:underline"
-            href="#"
-          >
-            Pricing
-          </Link>
-          <Link
-            className="text-sm font-medium underline-offset-4 hover:underline"
-            href="#"
-          >
-            About
-          </Link>
-          <Link
-            className="text-sm font-medium underline-offset-4 hover:underline"
-            href="#"
-          >
-            Contact
-          </Link>
-        </nav>
-        <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm">
-            Login
-          </Button>
-          <Link
-            href="https://github.com"
-            className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
-          >
-            <Github className="h-5 w-5" />
-            <span className="sr-only">GitHub</span>
-          </Link>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <span className="sr-only">Toggle menu</span>
-          </Button>
-        </div>
-      </header>
+      <Navbar />
+
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
@@ -100,6 +40,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
         <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -136,6 +77,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -213,6 +155,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
         <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
@@ -245,20 +188,8 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          © 2024 AlgoIllustrator. All rights reserved.
-        </p>
-        <nav className="flex gap-4 sm:ml-auto sm:gap-6">
-          <Link className="text-xs underline-offset-4 hover:underline" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs underline-offset-4 hover:underline" href="#">
-            Privacy
-          </Link>
-        </nav>
-        <ThemeDropdown />
-      </footer>
+
+      <Footer />
     </div>
   );
 }
