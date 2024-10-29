@@ -1,6 +1,6 @@
 # AlgoIllustrator
 
-### A web-based interactive tool for visualizing and experimenting with various sorting algorithms such as Bubble Sort, Merge Sort, and Quick Sort. Built using **Next.js**, this project provides a seamless, dynamic experience for users to learn and understand algorithms by interacting with customizable charts and visualizations.
+### A web-based interactive tool for visualizing and experimenting with various algorithms such as Bubble Sort, Binary Search, and Breadth-First Search(BFS). Built using **Next.js**, this project provides a seamless and dynamic experience for users to learn and understand algorithms by interacting with customizable charts for visualizations.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@
 
 ## Introduction
 
-**AlgoIllustrator** is an educational platform where users can explore and play with different algorithms, visualizing how they work in real-time on customizable datasets. Users can modify the input data, choose specific algorithms, and observe the sorting process step by step through intuitive animations and charts.
+**AlgoIllustrator** is an educational platform where users can explore and play with different algorithms, visualizing how they work in real-time on customizable datasets. Users can modify the input data, choose specific algorithms, and observe the process step by step through intuitive animations and charts.
 
 This project aims to provide an interactive learning experience for students, educators, and anyone interested in understanding fundamental algorithms in a fun, engaging way. Whether you’re new to algorithms or a seasoned developer, AlgoIllustrator has something to offer!
 
@@ -28,13 +28,11 @@ This project aims to provide an interactive learning experience for students, ed
 
 - **Algorithm Visualization**: Watch how different sorting algorithms work, step-by-step.
 - **Customizable Data**: Create your own datasets and see how algorithms perform on different data.
-- **Multiple Algorithms**: Choose from a wide range of sorting algorithms such as Bubble Sort, Merge Sort, Quick Sort, and more.
+- **Multiple Algorithms**: Choose from a wide range of algorithms such as Bubble Sort, Binary Search, and Breadth-First Search(BFS).
 - **Real-Time Controls**: Play, pause, or step through the sorting process to observe the behavior at each stage.
-- **Responsive Charts**: Visualizations adjust to screen size, making it accessible on both desktop and mobile.
+- **Responsive Charts**: Visualizations adjust to screen size, making it accessible on both desktop, tablet and mobile.
 - **Speed Control**: Adjust the speed of the visualization to better understand the process.
 - **In-depth Descriptions**: Learn about each algorithm through detailed explanations and time complexity analysis.
-
-Feel free to suggest or add any other relevant features!
 
 ---
 
@@ -89,7 +87,7 @@ npm install
 cp .env.example .env
 ```
 
-_Please include any environment variables needed here, such as Supabase keys._
+_Please include any environment variables needed here, such as Database keys, etc._
 
 5. Run the development server:
 
@@ -103,14 +101,35 @@ You can now visit the application at `http://localhost:3000`.
 
 ## Algorithms & Visualizations
 
-AlgoIllustrator supports several sorting algorithms, each with a detailed explanation and a step-by-step visualization. Some of the following algorithms available are as follows:
+AlgoIllustrator supports several algorithms, each with a detailed explanation and a step-by-step visualization. Some of the following algorithms available are as follows:
 
-1. **Bubble Sort**: A simple comparison-based sorting algorithm.
-2. **Selection Sort**: Finds the smallest element and moves it to the front.
-3. **Merge Sort**: A divide-and-conquer sorting algorithm with better efficiency.
-4. **Quick Sort**: An efficient sorting algorithm based on partitioning.
-5. **Insertion Sort**: Builds the final sorted array one item at a time.
-6. **Heap Sort**: A comparison-based sorting algorithm using a heap structure.
+# Algorithms for Interactive Visualization Tool
+
+## Sorting Algorithms
+
+1. **Bubble Sort**: A simple, comparison-based sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
+
+2. **Selection Sort**: Finds the smallest (or largest) element and moves it to the front. It is easy to understand but inefficient for large datasets.
+
+3. **Merge Sort**: A divide-and-conquer sorting algorithm that divides the array into halves, recursively sorts them, and then merges the sorted halves.
+
+4. **Quick Sort**: An efficient, partition-based sorting algorithm. It selects a "pivot" element and partitions the array around the pivot, with smaller elements on one side and larger on the other.
+
+5. **Heap Sort**: A comparison-based sorting algorithm that uses a binary heap data structure, suitable for handling large datasets efficiently.
+
+6. **Insertion Sort**: Builds the sorted array one element at a time, useful for smaller datasets and nearly sorted lists due to its simplicity and low overhead.
+
+## Searching Algorithms
+
+1. **Binary Search**: A searching algorithm that efficiently finds an element in a sorted array by repeatedly dividing the search interval in half.
+
+## Graph Traversal Algorithms
+
+1. **Breadth-First Search (BFS)**: A graph traversal algorithm that explores nodes level by level, commonly used for finding the shortest path in unweighted graphs.
+
+2. **Depth-First Search (DFS)**: A graph traversal algorithm that explores nodes as far down a branch as possible before backtracking, useful for pathfinding and connectivity checks.
+
+3. **Dijkstra's Algorithm**: A shortest-path algorithm for finding the minimum distance between nodes in a weighted graph, commonly used in networking and GPS systems.
 
 More algorithms will be added, so stay tuned!
 
@@ -147,14 +166,13 @@ This section provides an overview of the project’s directory structure:
 - **`next.config.js`**: Next.js configuration file.
 - **`tailwind.config.ts`**: TailwindCSS configuration.
 - **`README.md`**: Project documentation.
-- **`README.md`**: Project documentation.
 - **`LICENSE.md`**: License file for the project.
 
 ---
 
 ## How to Use
 
-1. **Choose an Algorithm**: Select from the available sorting algorithms on the homepage.
+1. **Choose an Algorithm**: Select from the available algorithms on the homepage.
 2. **Customize Data**: Adjust the dataset using sliders to change size, randomness, or enter custom values.
 3. **Start the Visualization**: Watch the algorithm sort the dataset in real time.
 4. **Control the Speed**: Use the speed slider to slow down or speed up the sorting process.
