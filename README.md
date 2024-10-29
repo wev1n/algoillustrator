@@ -40,8 +40,6 @@ Feel free to suggest or add any other relevant features!
 
 ## Tech Stack
 
-## Tech Stack
-
 - **Next.js**: A React-based framework for building server-rendered applications.
 - **TypeScript**: For type-safe and maintainable code.
 - **TailwindCSS**: Used for styling and making the site responsive.
