@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import Logo from "./logo";
 import { useTheme } from "next-themes";
@@ -74,6 +74,15 @@ export default function Navbar() {
             </Link>
             <Separator orientation="vertical" className="mx-2 h-8" />
             <Button className="ml-4">Login</Button>
+          </div>
+          <div className="-mr-2 flex items-center sm:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center rounded-md p-2 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? <X /> : <Menu />}
+            </button>
           </div>
         </div>
       </div>
