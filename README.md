@@ -103,9 +103,7 @@ You can now visit the application at `http://localhost:3000`.
 
 AlgoIllustrator supports several algorithms, each with a detailed explanation and a step-by-step visualization. Some of the following algorithms available are as follows:
 
-# Algorithms for Interactive Visualization Tool
-
-## Sorting Algorithms
+### Sorting Algorithms
 
 1. **Bubble Sort**: A simple, comparison-based sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
 
@@ -119,11 +117,11 @@ AlgoIllustrator supports several algorithms, each with a detailed explanation an
 
 6. **Insertion Sort**: Builds the sorted array one element at a time, useful for smaller datasets and nearly sorted lists due to its simplicity and low overhead.
 
-## Searching Algorithms
+### Searching Algorithms
 
 1. **Binary Search**: A searching algorithm that efficiently finds an element in a sorted array by repeatedly dividing the search interval in half.
 
-## Graph Traversal Algorithms
+### Graph Traversal Algorithms
 
 1. **Breadth-First Search (BFS)**: A graph traversal algorithm that explores nodes level by level, commonly used for finding the shortest path in unweighted graphs.
 
