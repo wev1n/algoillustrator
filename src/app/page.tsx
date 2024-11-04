@@ -1,188 +1,268 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { Input } from "./_components/ui/input";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "./_components/ui/tabs";
-import { ArrowRight, Code, Eye, Zap } from "lucide-react";
+import { ArrowRight, DollarSign, KeyRound, TimerIcon } from "lucide-react";
 import { Button } from "./_components/ui/button";
 import Footer from "./_components/footer";
 import Navbar from "./_components/navbar";
+import TestimonialCard from "./_components/testimonial-card";
+import { type Testimonial } from "~/types";
+
+// plejd internationalization: https://www.plejd.com/sv-se
+
+const slideAnimation = `
+  @keyframes slideLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes slideRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+`;
+
+const testimonials: Testimonial[] = [
+  {
+    name: "John Doe",
+    role: "CEO & Founder",
+    content:
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    image: "/images/avatar.png",
+  },
+  {
+    name: "Jane Doe",
+    role: "CTO",
+    content:
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    image: "/images/avatar.png",
+  },
+  {
+    name: "John Smith",
+    role: "COO",
+    content:
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    image: "/images/avatar.png",
+  },
+  {
+    name: "Gordon Doe",
+    role: "Developer",
+    content:
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    image: "/images/avatar.png",
+  },
+  {
+    name: "John Doe",
+    role: "CEO & Founder",
+    content:
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    image: "/images/avatar.png",
+  },
+  {
+    name: "Jane Doe",
+    role: "CTO",
+    content:
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    image: "/images/avatar.png",
+  },
+];
 
 export default function HomePage() {
+  const firstRow = testimonials.slice(0, 3);
+  const secondRow = testimonials.slice(3, 6);
+
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-
-      <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Visualize, Learn, Master Algorithms
+      <main className="flex w-full flex-col items-center justify-center">
+        <section>
+          <div className="container">
+            <div className="grid items-center gap-8 lg:grid-cols-2">
+              <div className="flex flex-col items-center py-32 text-center lg:mx-auto lg:items-start lg:px-0 lg:text-left">
+                <p>Newly Released</p>
+                <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">
+                  Visualize Algorithms and Data Structures with Ease
                 </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl">
-                  AlgoIllustrator brings algorithms to life. Interact with
-                  visualizations, understand complex concepts, and enhance your
-                  problem-solving skills.
+                <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
+                  Welcome to our website, where you can easily visualize
+                  algorithms and data structures. Whether you are a student,
+                  developer, or simply curious, we provide a user-friendly
+                  platform to explore and understand these concepts.
                 </p>
-              </div>
-              <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                <Button>Get Started</Button>
-                <Button variant="outline">Learn More</Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-5xl">
-              Key Features
-            </h2>
-            <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
-              <div className="flex flex-col items-center space-y-2 rounded-lg border-gray-800 p-4">
-                <Eye className="mb-2 h-8 w-8" />
-                <h3 className="text-center text-xl font-bold">
-                  Interactive Visualizations
-                </h3>
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400">
-                  Watch algorithms come to life with dynamic, step-by-step
-                  visual representations. Adjust inputs and see real-time
-                  changes.
-                </p>
-              </div>
-              <div className="flex flex-col items-center space-y-2 rounded-lg border-gray-800 p-4">
-                <Code className="mb-2 h-8 w-8" />
-                <h3 className="text-xl font-bold">Code Integration</h3>
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400">
-                  See the code alongside visualizations to understand
-                  implementation details.
-                </p>
-              </div>
-              <div className="flex flex-col items-center space-y-2 rounded-lg border-gray-800 p-4">
-                <Zap className="mb-2 h-8 w-8" />
-                <h3 className="text-xl font-bold">Performance Analysis</h3>
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400">
-                  Compare algorithm efficiency with real-time performance
-                  metrics.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-5xl">
-              Experience AlgoIllustrator
-            </h2>
-            <Tabs
-              defaultValue="visualization"
-              className="mx-auto w-full max-w-3xl"
-            >
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="visualization">Visualization</TabsTrigger>
-                <TabsTrigger value="code">Code View</TabsTrigger>
-                <TabsTrigger value="analysis">Analysis</TabsTrigger>
-              </TabsList>
-              <TabsContent value="visualization" className="mt-4">
-                <div className="aspect-video overflow-hidden rounded-xl border bg-gray-100 dark:bg-gray-800">
-                  <Image
-                    alt="Algorithm Visualization"
-                    className="h-full w-full object-cover"
-                    height="400"
-                    src="/placeholder.svg"
-                    width="600"
-                  />
-                </div>
-              </TabsContent>
-              <TabsContent value="code" className="mt-4">
-                <div className="aspect-video overflow-hidden rounded-xl border bg-gray-100 p-4 dark:bg-gray-800">
-                  <pre className="text-sm">
-                    <code>
-                      {`function quickSort(arr) {
-                      if (arr.length <= 1) {
-                        return arr;
-                      }
-
-                      const pivot = arr[arr.length - 1];
-                      const left = [];
-                      const right = [];
-
-                      for (let i = 0; i < arr.length - 1; i++) {
-                        if (arr[i] < pivot) {
-                          left.push(arr[i]);
-                        } else {
-                          right.push(arr[i]);
-                        }
-                      }
-
-                      return [...quickSort(left), pivot, ...quickSort(right)];
-                    }`}
-                    </code>
-                  </pre>
-                </div>
-              </TabsContent>
-              <TabsContent value="analysis" className="mt-4">
-                <div className="aspect-video overflow-hidden rounded-xl border bg-gray-100 p-4 dark:bg-gray-800">
-                  <h3 className="mb-2 text-lg font-bold">
-                    Quick Sort Analysis
-                  </h3>
-                  <ul className="list-inside list-disc space-y-2">
-                    <li>Average Time Complexity: O(n log n)</li>
-                    <li>Worst Case Time Complexity: O(n²)</li>
-                    <li>Space Complexity: O(log n)</li>
-                    <li>Stability: Not stable</li>
-                  </ul>
-                </div>
-              </TabsContent>
-            </Tabs>
-            <div className="mt-8 text-center">
-              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                The code above is just an example. To experience more, check out
-                our full visualizer!
-              </p>
-              <Button asChild>
-                <Link href="/visualizer">Try Our Visualizer</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Ready to Master Algorithms?
-                </h2>
-                <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl">
-                  Join thousands of students and professionals who are enhancing
-                  their algorithmic thinking with AlgoIllustrator.
-                </p>
-              </div>
-              <div className="w-full max-w-sm space-y-2">
-                <form className="flex flex-col space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
-                  <Input
-                    className="max-w-lg flex-1"
-                    placeholder="Enter your email"
-                    type="email"
-                  />
-                  <Button type="submit">
-                    Get Started
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
+                  <Button className="w-full sm:w-auto">
+                    <ArrowRight className="mr-2 size-4" />
+                    Sign Up
                   </Button>
-                </form>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Start your free trial. No credit card required.
+                  <Button variant="outline" className="w-full sm:w-auto">
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+              <div className="relative aspect-[3/4]">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    viewBox="0 0 800 800"
+                    className="size-full text-muted-foreground opacity-20"
+                  >
+                    {Array.from(Array(720).keys()).map((dot, index, array) => {
+                      const angle = 0.2 * index;
+                      const scalar = 40 + index * (360 / array.length);
+                      const x = Math.round(Math.cos(angle) * scalar);
+                      const y = Math.round(Math.sin(angle) * scalar);
+
+                      return (
+                        <circle
+                          key={index}
+                          r={(3 * index) / array.length}
+                          cx={400 + x}
+                          cy={400 + y}
+                          opacity={1 - Math.sin(angle)}
+                        />
+                      );
+                    })}
+                  </svg>
+                </div>
+                <div className="absolute left-[8%] top-[10%] flex aspect-[5/6] w-[38%] justify-center rounded-lg border border-border bg-accent"></div>
+                <div className="absolute right-[12%] top-[20%] flex aspect-square w-1/5 justify-center rounded-lg border border-border bg-accent"></div>
+                <div className="absolute bottom-[24%] right-[24%] flex aspect-[5/6] w-[38%] justify-center rounded-lg border border-border bg-accent"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="overflow-hidden py-32">
+          <div className="container relative">
+            <div className="pointer-events-none absolute inset-0 -top-20 -z-10 mx-auto hidden size-[500px] bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)] opacity-25 [background-size:6px_6px] [mask-image:radial-gradient(circle_at_center,white_250px,transparent_250px)] lg:block"></div>
+            <div className="relative flex justify-between gap-16">
+              <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-background via-transparent to-transparent lg:block"></div>
+
+              <div className="w-full max-w-96 shrink-0 justify-between">
+                <p className="font-mono text-xs text-muted-foreground">
+                  What’s the solution?
                 </p>
+                <h2 className="mb-3 mt-6 text-3xl font-medium lg:text-4xl">
+                  Let Streamline handle the details
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  Streamline optimizes your workflow from start to finish. It
+                  gathers information, generates reports, automates tasks, and
+                  delivers results—all in one seamless system.
+                </p>
+              </div>
+              <div className="hidden w-full max-w-3xl shrink-0 lg:block">
+                <Image
+                  src="https://www.shadcnblocks.com/images/block/placeholder-1.svg"
+                  alt="placeholder"
+                  className="max-h-[450px] w-full min-w-[450px] max-w-3xl rounded-lg border object-cover"
+                  width={40}
+                  height={40}
+                />
+              </div>
+            </div>
+            <div className="relative mt-8 grid md:grid-cols-3">
+              <div className="flex flex-col gap-y-6 px-2 py-10 md:p-6 lg:p-8">
+                <TimerIcon />
+                <div>
+                  <h3 className="text-lg font-medium">Maximize efficiency</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Skip the manual tasks and complex setups. With Streamline,
+                    you can focus on what matters most while the system handles
+                    the rest.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-y-6 px-2 py-10 md:p-6 lg:p-8">
+                <DollarSign />
+                <div>
+                  <h3 className="text-lg font-medium">Optimize resources</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Don’t overspend on unnecessary tools or teams. Keep your
+                    operations lean and efficient by automating your workflows
+                    with Streamline.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-y-6 px-2 py-10 md:p-6 lg:p-8">
+                <KeyRound />
+                <div>
+                  <h3 className="text-lg font-medium">Simplify operations</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Say goodbye to managing multiple platforms. Streamline takes
+                    care of all the heavy lifting, ensuring consistent results
+                    with minimal hassle.
+                  </p>
+                </div>
+              </div>
+              <div className="absolute -inset-x-4 top-0 h-px bg-input md:hidden"></div>
+              <div className="absolute -inset-x-4 top-[-0.5px] row-start-2 h-px bg-input md:hidden"></div>
+              <div className="absolute -inset-x-4 top-[-0.5px] row-start-3 h-px bg-input md:hidden"></div>
+              <div className="absolute -inset-x-4 bottom-0 row-start-4 h-px bg-input md:hidden"></div>
+              <div className="absolute -left-2 -top-2 bottom-0 w-px bg-input md:hidden"></div>
+              <div className="absolute -right-2 -top-2 bottom-0 col-start-2 w-px bg-input md:hidden"></div>
+              <div className="absolute -inset-x-2 top-0 hidden h-px bg-input md:block"></div>
+              <div className="absolute -top-2 bottom-0 left-0 hidden w-px bg-input md:block"></div>
+              <div className="absolute -left-[0.5px] -top-2 bottom-0 col-start-2 hidden w-px bg-input md:block"></div>
+              <div className="absolute -left-[0.5px] -top-2 bottom-0 col-start-3 hidden w-px bg-input md:block"></div>
+              <div className="absolute -top-2 bottom-0 right-0 hidden w-px bg-input md:block"></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="flex w-full justify-center overflow-hidden py-12 md:py-24 lg:py-32">
+          <style dangerouslySetInnerHTML={{ __html: slideAnimation }} />
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Meet our happy clients
+              </h2>
+              <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                All of our 1000+ clients are happy
+              </p>
+              <Button className="mt-4">Get started for free</Button>
+            </div>
+            <div className="mt-16 space-y-8">
+              <div className="flex animate-[slideLeft_60s_linear_infinite] space-x-4">
+                {[...firstRow, ...firstRow].map((testimonial, index) => (
+                  <TestimonialCard
+                    key={index}
+                    testimonial={testimonial}
+                    className="min-w-[300px] md:min-w-[400px]"
+                  />
+                ))}
+              </div>
+              <div className="flex animate-[slideRight_60s_linear_infinite] space-x-4">
+                {[...secondRow, ...secondRow].map((testimonial, index) => (
+                  <TestimonialCard
+                    key={index}
+                    testimonial={testimonial}
+                    className="min-w-[300px] md:min-w-[400px]"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-32">
+          <div className="container">
+            <div className='flex items-center justify-center rounded-2xl border bg-[url("/images/dots.jpg")] bg-cover bg-center px-8 py-20 text-center md:p-20'>
+              <div className="mx-auto max-w-screen-md">
+                <h1 className="mb-4 text-balance text-3xl font-semibold md:text-5xl">
+                  Start building your websites faster
+                </h1>
+                <p className="text-muted-foreground md:text-lg">
+                  Try our tools and services to build your website faster. Start
+                  with a 14-day free trial. No credit card required. No setup
+                  fees. Cancel anytime.
+                </p>
+                <div className="mt-11 flex flex-col justify-center gap-2 sm:flex-row">
+                  <Button size="lg">Get Started</Button>
+                  <Button size="lg" variant="outline">
+                    Learn More
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

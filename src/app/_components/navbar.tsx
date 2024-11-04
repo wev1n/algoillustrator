@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -46,6 +48,12 @@ export default function Navbar() {
                 className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-400 hover:text-primary"
               >
                 Documentation
+              </Link>
+              <Link
+                href="/pricing"
+                className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-400 hover:text-primary"
+              >
+                Pricing
               </Link>
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -169,7 +177,7 @@ export default function Navbar() {
                 </ul>
                 <div className="mt-5 text-sm">
                   <Link
-                    href="#"
+                    href="/blog"
                     className="font-medium text-primary hover:text-primary/80"
                   >
                     See all articles <span aria-hidden="true">&rarr;</span>
