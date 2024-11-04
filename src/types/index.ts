@@ -1,5 +1,6 @@
-export type Fruit = {
-  color: "red" | "green" | "yellow";
-  healthy: boolean;
-  calories: number;
+export type Testimonial = {
+  name: string;
+  role: string;
+  content: string;
+  image: string;
 };
