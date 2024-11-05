@@ -245,24 +245,30 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-32">
-          <div className="container">
-            <div className='flex items-center justify-center rounded-2xl border bg-[url("/images/dots.jpg")] bg-cover bg-center px-8 py-20 text-center md:p-20'>
-              <div className="mx-auto max-w-screen-md">
-                <h1 className="mb-4 text-balance text-3xl font-semibold md:text-5xl">
-                  Start building your websites faster
-                </h1>
-                <p className="text-muted-foreground md:text-lg">
-                  Try our tools and services to build your website faster. Start
-                  with a 14-day free trial. No credit card required. No setup
-                  fees. Cancel anytime.
-                </p>
-                <div className="mt-11 flex flex-col justify-center gap-2 sm:flex-row">
-                  <Button size="lg">Get Started</Button>
-                  <Button size="lg" variant="outline">
-                    Learn More
-                  </Button>
-                </div>
+        <section className="mt-32 w-full border-t-2">
+          <div className="relative flex w-full items-center justify-center overflow-hidden px-8 py-20 text-center md:p-20">
+            <div
+              className="absolute inset-0 opacity-10"
+              style={{
+                backgroundImage: `radial-gradient(circle, #000 2px, transparent 1px)`,
+                backgroundSize: "20px 20px",
+              }}
+            />
+
+            <div className="relative mx-auto max-w-screen-md">
+              <h1 className="mb-4 text-balance text-3xl font-semibold md:text-5xl">
+                Start building your websites faster
+              </h1>
+              <p className="text-muted-foreground md:text-lg">
+                Try our tools and services to build your website faster. Start
+                with a 14-day free trial. No credit card required. No setup
+                fees. Cancel anytime.
+              </p>
+              <div className="mt-11 flex flex-col justify-center gap-2 sm:flex-row">
+                <Button size="lg">Get Started</Button>
+                <Button size="lg" variant="outline">
+                  Learn More
+                </Button>
               </div>
             </div>
           </div>
