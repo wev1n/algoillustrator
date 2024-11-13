@@ -38,13 +38,13 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               <Link
-                href="/"
+                href="/visualizer"
                 className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-400 hover:text-primary"
               >
                 Visualizer
               </Link>
               <Link
-                href="/"
+                href="/documentation"
                 className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-400 hover:text-primary"
               >
                 Documentation

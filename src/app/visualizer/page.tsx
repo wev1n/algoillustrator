@@ -14,7 +14,7 @@ import {
   SidebarTrigger,
 } from "~/app/_components/ui/sidebar";
 
-export default function Page() {
+export default function VisualizerPage() {
   return (
     <SidebarProvider>
       <AppSidebar />
