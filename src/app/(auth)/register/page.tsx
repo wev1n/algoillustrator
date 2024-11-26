@@ -19,16 +19,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { Checkbox } from "~/app/_components/ui/checkbox";
 
-export default function LoginPage() {
-  const formSchema = z.object({
-    email: z.string().email(),
-    password: z.string(),
-  });
+export default function RegisterPage() {
+  const formSchema = z
+    .object({
+      email: z.string().email("Invalid email address"),
+      password: z.string().min(8, "Password must be at least 8 characters"),
+      confirmPassword: z.string(),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: "Passwords don't match",
+      path: ["confirmPassword"],
+    });
 
   const form = useForm({
     defaultValues: {
       email: "",
       password: "",
+      confirmPassword: "",
     },
     resolver: zodResolver(formSchema),
   });
@@ -46,10 +53,10 @@ export default function LoginPage() {
               <Logo textSize="text-2xl" />
             </div>
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
-              Welcome back
+              Create an account
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Please enter your credentials below.
+              Please fill in your details below.
             </p>
           </div>
 
@@ -99,27 +106,41 @@ export default function LoginPage() {
                 )}
               />
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Checkbox
-                    id="remember-me"
-                    className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  <label
-                    htmlFor="remember-me"
-                    className="ml-2 block text-sm text-gray-900"
-                  >
-                    Remember me
-                  </label>
-                </div>
-                <div className="text-sm">
-                  <Link
-                    href="/auth/forgot-password"
-                    className="font-medium hover:text-blue-500"
-                  >
-                    Forgot password?
+              <FormField
+                control={form.control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="block text-sm font-medium text-gray-700">
+                      Confirm Password
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        placeholder="Confirm your password"
+                        {...field}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring-accent"
+                      />
+                    </FormControl>
+                    <FormMessage className="mt-2 text-sm text-destructive" />
+                  </FormItem>
+                )}
+              />
+
+              <div className="flex items-center">
+                <Checkbox
+                  id="terms"
+                  className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                />
+                <label
+                  htmlFor="terms"
+                  className="ml-2 block text-sm text-gray-900"
+                >
+                  I agree to the{" "}
+                  <Link href="/terms" className="text-blue-600 hover:underline">
+                    Terms and Conditions
                   </Link>
-                </div>
+                </label>
               </div>
 
               <div>
@@ -127,7 +148,7 @@ export default function LoginPage() {
                   type="submit"
                   className="flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
-                  Sign in
+                  Sign up
                 </Button>
               </div>
             </form>
@@ -191,9 +212,9 @@ export default function LoginPage() {
           </div>
 
           <p className="mt-10 text-center text-sm text-gray-600">
-            Don&apos;t have an account?{" "}
-            <Link href="/register" className="font-medium hover:text-blue-500">
-              Sign up
+            Already have an account?{" "}
+            <Link href="/login" className="font-medium hover:text-blue-500">
+              Sign in
             </Link>
           </p>
         </div>
@@ -202,8 +223,8 @@ export default function LoginPage() {
       <div className="relative hidden flex-1 lg:block">
         <div className="absolute inset-0 flex items-center justify-center">
           <Image
-            src="/images/shaking-hands.svg"
-            alt="Login illustration"
+            src="/images/man-riding-a-rocket.svg"
+            alt="Register illustration"
             width={400}
             height={400}
             className="h-auto w-full max-w-md object-cover"

@@ -7,6 +7,7 @@ import Footer from "./_components/footer";
 import Navbar from "./_components/navbar";
 import TestimonialCard from "./_components/testimonial-card";
 import { type Testimonial } from "~/types";
+import Link from "next/link";
 
 // plejd internationalization: https://www.plejd.com/sv-se
 
@@ -89,10 +90,12 @@ export default function HomePage() {
                   platform to explore and understand these concepts.
                 </p>
                 <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-                  <Button className="w-full sm:w-auto">
-                    <ArrowRight className="mr-2 size-4" />
-                    Sign Up
-                  </Button>
+                  <Link href="/register">
+                    <Button className="w-full sm:w-auto">
+                      <ArrowRight className="mr-2 size-4" />
+                      Sign Up
+                    </Button>
+                  </Link>
                   <Button variant="outline" className="w-full sm:w-auto">
                     Learn More
                   </Button>

@@ -81,9 +81,9 @@ export default function Navbar() {
               <span className="sr-only">GitHub</span>
             </Link>
             <Separator orientation="vertical" className="mx-2 h-8" />
-            <Button className="ml-4">
-              <Link href="/login">Login</Link>
-            </Button>
+            <Link href="/login">
+              <Button className="ml-4">Login</Button>
+            </Link>
           </div>
           <div className="-mr-2 flex items-center sm:hidden">
             <button
