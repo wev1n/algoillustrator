@@ -1,7 +1,6 @@
 import {
   ArrowDownAZ,
   ChartNoAxesColumnIncreasing,
-  Command,
   Divide,
   Ellipsis,
   Hash,
@@ -20,13 +19,6 @@ export const sidebarData = {
     email: "john.doe@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  teams: [
-    {
-      name: "AlgoIllustrator",
-      logo: Command,
-      plan: "Hobby",
-    },
-  ],
   algorithms: [
     {
       title: "Sorting",
