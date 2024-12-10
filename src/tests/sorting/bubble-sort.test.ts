@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bubbleSort } from "../../algorithms/bubble-sort";
+import { bubbleSort } from "../../algorithms/sorting/bubble-sort";
 
 const array = [9, 2, 6, 8, 3, 5, 1, 7, 4];
 
